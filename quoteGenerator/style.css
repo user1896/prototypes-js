@@ -1,0 +1,53 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main{
+	height: 100vh;
+	width: 100%;
+	background-color: wheat;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+main h1{
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+main div{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: cadetblue;
+	min-height: 10rem;
+	max-width: 32rem;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.quote{
+	background-color: chocolate;
+	width: 100%;
+	padding: 1rem;
+}
+
+.quotee{
+	background-color: azure;
+	width: 100%;
+	padding: 0.5rem;
+}
+
+main div button{
+	padding: 0.2rem;
+	margin: 0.2rem;
+}
