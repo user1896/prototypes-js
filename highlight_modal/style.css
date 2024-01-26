@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body{
+	background-color: steelblue;
+}
+
+#open-btn{
+	background-color: transparent;
+	color: white;
+	border: solid 2px;
+	border-radius: 5px;
+	position: absolute;
+	top: 70%;
+	left: 10%;
+	padding: 0.5rem;
+	font-size: 1.5rem;
+	transition: 300ms;
+}
+
+#open-btn:hover{
+	background-color: white;
+	color: black;
+}
+
+#modal-container{
+	position: absolute;
+	left: 40%;
+	top: 0%;
+	background-color: aqua;
+	width: 7rem;
+	height: 4rem;
+	animation-name: animatemodal;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	display: none;
+}
+
+@keyframes animatemodal{
+	100%{top: 50%;}
+}
+
+#close-btn{
+	padding: 0.1rem;
+}
+
+#modal{
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+}
