@@ -1,0 +1,54 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body{
+	height: 100vh;
+	background-color: teal;
+}
+
+main{
+	background-color: blanchedalmond;
+	width: clamp(300px, 30vw, 1300px);
+	height: 30vh;
+	border-radius: 1rem;
+}
+
+.timer{
+	height: 65%;
+	font-size: calc(1vw + 1.9rem);
+}
+
+.control{
+	height: 35%;
+}
+
+.control button{
+	font-size: calc(1vw + 0.8rem);
+	color: white;
+	width: 2.6vw;
+	width: clamp(1.5rem, 2.6vw, 6rem);
+	padding: 0.3rem 0 0.3rem 0;
+}
+
+.play{
+	margin-right: 1vw;
+	background-color: green;
+}
+
+.play.playing{
+	background-color: orange;
+}
+
+.reset{
+	margin-left: 1vw;
+	background-color: red;
+}
