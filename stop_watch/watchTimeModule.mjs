@@ -64,7 +64,7 @@ class WatchTime{
 		target_element.innerText = this.showTimer()
 	}
 
-	getIsTimeRunning(){
+	get getIsTimeRunning(){
 		return this.#isTimeRunning
 	}
 }

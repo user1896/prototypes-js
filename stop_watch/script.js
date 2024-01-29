@@ -11,7 +11,7 @@ play.addEventListener("click",function(){
 	play.classList.toggle("playing")
 
 	// change button icon
-	if( myTimer.getIsTimeRunning() == false ){
+	if( myTimer.getIsTimeRunning == false ){
 		play.innerHTML = '<i class="fa-solid fa-pause"></i>'
 	}else{
 		play.innerHTML = '<i class="fa-solid fa-play"></i>'
