@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body{
+	background-color: darkmagenta;
+	height: 100vh;
+}
+
+main{
+	background-color: wheat;
+	width: 19.2rem;
+	height: 19.2rem;
+	font-size: 4rem;
+
+	display: grid;
+	gap: 0.7rem 0.7rem;
+	grid-template-columns: 6rem 6rem 6rem;
+	justify-content: center;
+}
+
+main div{
+	background-color: teal;
+}
