@@ -1,7 +1,7 @@
 const matrix = [
-	[null],[null],[null],
-	[null],['x'],[null],
-	['x'],[null],['o']
+	['x'],[null],[null],
+	[null],['o'],['x'],
+	[null],[null],[null]
 ]
 
 export default matrix

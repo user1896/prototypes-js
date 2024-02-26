@@ -10,16 +10,6 @@ function how_many_marks_in_lineup( lineup, playersMark ){
 	return countMarks
 }
 
-function count_empty_spots( lineup ){
-	let empty_spots = 0
-	for( let i = 0; i < 3; i++ ){
-		if( !lineup[i][0] ){
-			empty_spots++
-		}
-	}
-	return empty_spots
-}
-
 function is_lineup_can_be_marked( lineup ){
 	for( let i = 0; i < 3; i++ ){
 		if( !lineup[i][0] ){
@@ -38,32 +28,34 @@ function is_lineup_can_be_marked( lineup ){
 function best_lineup_to_mark( playersMark, opponentsMark ){
 	let chosen_lineup = 0
 	let position = 0
-	let countMarks = 0
-	let empty_spots = 0
+	let players_countMarks = 0
+	let opponents_countMarks = 2
 	for( let i = 0; i < 8; i++ ){
 		const players_current_lineup_countMarks = how_many_marks_in_lineup(lineups[i], playersMark)
 		const opponents_current_lineup_countMarks = how_many_marks_in_lineup(lineups[i], opponentsMark)
 		const {is_can_be_marked, position_to_mark} = is_lineup_can_be_marked(lineups[i])
-		const current_lineup_empty_spots = count_empty_spots(lineups[i])
+		// const current_lineup_empty_spots = count_empty_spots(lineups[i])
 
 		// If opponent is about to win (has 2 marks), then we return this lineup to stop him from winning
 		if( is_can_be_marked && (opponents_current_lineup_countMarks === 2) ){
-			// opponent can have two marks but the third sport is taken by the player, so we check "if(is_can_be_marked)" first
+			// opponent can have two marks but the third spot is taken by the player, so we check "if(is_can_be_marked)" first
 			return {
 				chosen_lineup: i,
 				position: position_to_mark
 			}
 		}
 
-		if( is_can_be_marked && 
+		if( is_can_be_marked
 			// we can have two marks but the third spot could be taken by the opponent, so we check "if(is_can_be_marked)" first
-			(players_current_lineup_countMarks >= countMarks) && 
+			&& (players_current_lineup_countMarks >= players_countMarks)
 			// if player has two marks then this lineup should be taken instead of a lineup that has only one mark.
-			(current_lineup_empty_spots > empty_spots)){
+			
+			&& (opponents_current_lineup_countMarks < opponents_countMarks)){
 				// if a player had one mark in the lineup with two empty spots, then it's better than one mark with only one 
 				// empty spot (because the oponent took the other).
-			empty_spots = current_lineup_empty_spots
-			countMarks = players_current_lineup_countMarks
+			
+			players_countMarks = players_current_lineup_countMarks
+			opponents_countMarks = opponents_current_lineup_countMarks
 			chosen_lineup = i
 			position = position_to_mark
 			if( ((i === 1) || (i === 4) || (i === 6) || (i === 7)) && !lineups[i][1][0] ){

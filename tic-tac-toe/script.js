@@ -18,10 +18,4 @@ function display(){
 }
 display()
 
-play( 'x', 'o' )
-// play( 'x', 'o' ) // here we should win, but we're not, FIX IT
-// play( 'x', 'o' )
-
-display()
-
 // create a reset button to reset the matrix
