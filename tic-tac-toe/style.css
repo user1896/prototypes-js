@@ -13,12 +13,18 @@
 body{
 	background-color: darkmagenta;
 	height: 100vh;
+	flex-direction: column;
+}
+
+h2{
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
 }
 
 main{
 	background-color: wheat;
-	width: 19.2rem;
-	height: 19.2rem;
+	width: 19.4rem;
+	height: 19.4rem;
 	font-size: 4rem;
 
 	display: grid;
