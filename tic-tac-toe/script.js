@@ -4,9 +4,14 @@ import reset from './modules/reset.mjs'
 const main = document.querySelector("main")
 const reset_btn = document.querySelector("button")
 
-main.addEventListener("click", handleClick)
+function start_game(){
+	main.addEventListener("click", handleClick)
+}
 
-reset_btn.addEventListener("click", reset)
+start_game()
 
-// When we click "reset", the click evetListener should be added back to the element "main"
+reset_btn.addEventListener("click", function(){
+	reset()
+	start_game()
+})
 // when the machine "plays" the ui elements should be updated with the result

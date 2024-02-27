@@ -9,6 +9,7 @@ function reset(){
 	matrix[5][0] = null
 	matrix[6][0] = null
 	matrix[7][0] = null
+	matrix[8][0] = null
 
 	document.getElementById("0").innerText = ""
 	document.getElementById("1").innerText = ""
