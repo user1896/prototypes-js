@@ -14,4 +14,3 @@ reset_btn.addEventListener("click", function(){
 	reset()
 	start_game()
 })
-// when the machine "plays" the ui elements should be updated with the result
