@@ -1,30 +1,12 @@
-import lineups from './lineups.mjs'
+import lineups from '../lineups.mjs'
+import how_many_marks_in_lineup from './countMarks.mjs'
+import is_lineup_can_be_marked from './isCanBeMarked.mjs'
 
-function how_many_marks_in_lineup( lineup, playersMark ){
-	let countMarks = 0
-	for( let i = 0; i < 3; i++ ){
-		if( lineup[i][0] && (lineup[i][0] === playersMark) ){
-			countMarks++
-		}
-	}
-	return countMarks
-}
-
-function is_lineup_can_be_marked( lineup ){
-	for( let i = 0; i < 3; i++ ){
-		if( !lineup[i][0] ){
-			return {
-				is_can_be_marked: true,
-				position_to_mark: i
-			}
-		}
-	}
-	return {
-		is_can_be_marked: false,
-		position_to_mark: null
-	}
-}
-
+// fix this:
+// right now if I'm about to win and the opponent is also about to win, I stop him instead of winning myself
+// to make this we need to store the information, because for example the opponent can have 2 marks in lineup 1,
+// and I have 2 marks in lineup 4, here I should not return the result in lineup 1 when the opponent is winning,
+// instead I read all other lineups to see if I'm winning before making a decision, so these info should stored
 function best_lineup_to_mark( playersMark, opponentsMark ){
 	let chosen_lineup = 0
 	let position = 0
@@ -34,7 +16,6 @@ function best_lineup_to_mark( playersMark, opponentsMark ){
 		const players_current_lineup_countMarks = how_many_marks_in_lineup(lineups[i], playersMark)
 		const opponents_current_lineup_countMarks = how_many_marks_in_lineup(lineups[i], opponentsMark)
 		const {is_can_be_marked, position_to_mark} = is_lineup_can_be_marked(lineups[i])
-		// const current_lineup_empty_spots = count_empty_spots(lineups[i])
 
 		// If opponent is about to win (has 2 marks), then we return this lineup to stop him from winning
 		if( is_can_be_marked && (opponents_current_lineup_countMarks === 2) ){
@@ -71,23 +52,4 @@ function best_lineup_to_mark( playersMark, opponentsMark ){
 	}
 }
 
-const isWinner = (playersMark, chosen_lineup) => {
-	let countMarks = 0
-	for( let i = 0; i < 3; i++ ){
-		if(lineups[chosen_lineup][i][0] === playersMark )
-			countMarks++
-	}
-	if(countMarks === 3)
-		return true
-	else
-		return false
-}
-
-function play( playersMark, opponentsMark ){
-	const {chosen_lineup, position} = best_lineup_to_mark(playersMark, opponentsMark)
-	lineups[chosen_lineup][position][0] = playersMark
-	if( isWinner( playersMark, chosen_lineup ) )
-		document.querySelector("h2").innerHTML = "WINNER"
-}
-
-export default play
+export default best_lineup_to_mark
