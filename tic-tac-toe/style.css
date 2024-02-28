@@ -39,6 +39,60 @@ main div{
 	background-color: teal;
 }
 
+#line-container{
+	position: absolute;
+}
+
+#diagonal-line.display-line, #line.display-line{
+	display: block;
+}
+
+#line{
+	display: none;
+	width: 19.4rem;
+	height: 0.4rem;
+	background-color: black;
+	position: relative;
+}
+
+.cross-line-0{
+	bottom: 6.7rem;
+}
+
+.cross-line-2{
+	top: 6.7rem;
+}
+
+.cross-line-3{
+	transform: rotate(90deg);
+	right: 6.7rem;
+}
+
+.cross-line-4{
+	transform: rotate(90deg);
+}
+
+.cross-line-5{
+	transform: rotate(90deg);
+	left: 6.7rem;
+}
+
+#diagonal-line{
+	display: none;
+	width: 21.4rem;
+	height: 0.4rem;
+	background-color: black;
+	position: relative;
+}
+
+.cross-diagonal-line-1{
+	transform: rotate(45deg);
+}
+
+.cross-diagonal-line-2{
+	transform: rotate(-45deg);
+}
+
 button{
 	margin-top: 1rem;
 	font-size: 1.5rem;

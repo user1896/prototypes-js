@@ -8,11 +8,17 @@ const isWinner = (playersMark) => {
 				countMarks++
 		}
 		if(countMarks === 3){
-			return true
+			return {
+				result : true,
+				lineup: i
+			}
 		}
 		countMarks = 0
 	}
-	return false
+	return {
+		result: false,
+		lineup: null
+	}
 }
 
 export default isWinner

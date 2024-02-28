@@ -1,6 +1,18 @@
 import matrix from './matrix.mjs'
 
 function reset(){
+	const line = document.getElementById("line")
+	const diagonal_line = document.getElementById("diagonal-line")
+
+	line.classList.remove(
+		"display-line", "cross-line-0", "cross-line-2",
+		"cross-line-3", "cross-line-4", "cross-line-5"
+	)
+
+	diagonal_line.classList.remove(
+		"display-line", "cross-diagonal-line-1", "cross-diagonal-line-2"
+	)
+
 	matrix[0][0] = null
 	matrix[1][0] = null
 	matrix[2][0] = null
